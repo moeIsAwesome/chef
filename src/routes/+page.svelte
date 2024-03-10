@@ -48,7 +48,7 @@
 		/>
 	</div>
 	<div class="flex flex-col space-y-5 md:space-y-6 w-full md:w-[45%] md:px-4 px-4">
-		<div class="border-b-2 flex flex-col items-center border-black">
+		<div class="border-b-2 flex flex-col items-center border-orange-500">
 			<div class="flex w-full justify-between space-x-3">
 				<div class="flex items-center">
 					<Label for="flour" class="text-xl font-semibold md:text-2xl mr-2">Flour:</Label>
