@@ -60,7 +60,7 @@
 
 				<img src={Flour} alt="Flour" height="64" width="64" />
 			</div>
-			<div class="py-4 md:space-x-2">
+			<div class="py-4 md:space-x-2 space-x-1">
 				{#each [250, 500, 750, 1000] as amount}
 					<Button
 						color="alternative"
