@@ -6,11 +6,16 @@
 	import Onion from '../../../src/icons/onion.png';
 	import Garlic from '../../../src/icons/garlic.png';
 	import Salt from '../../../src/icons/salt.png';
+	import Boy from '../../../src/icons/boy.png';
+	import Girl from '../../../src/icons/girl.png';
+	import Woman from '../../../src/icons/woman.png';
+	import Man from '../../../src/icons/man.png';
 
-	let mincedMeat: number = 0;
+	let mincedMeat: number = 150;
 	$: onion = mincedMeat * 0.35;
 	$: garlic = mincedMeat / 200;
 	$: salt = mincedMeat / 550;
+	$: person = Math.ceil(mincedMeat / 150);
 </script>
 
 <div
@@ -18,6 +23,23 @@
 >
 	<div class="text-center">
 		<div class="md:text-3xl text-2xl font-bold text-orange-500"><h1>Kebap!</h1></div>
+		<div class="flex -space-x-3 py-4 justify-center flex-wrap w-40 gap-y-2">
+			{#each Array(person) as _}
+				{#if Math.random() < 0.25}
+					<img src={Girl} alt="Girl" height="34" width="34" />
+				{:else if Math.random() < 0.5}
+					<img src={Man} alt="Man" height="34" width="34" />
+				{:else if Math.random() < 0.75}
+					<img src={Woman} alt="Woman" height="34" width="34" />
+				{:else}
+					<img src={Boy} alt="Boy" height="34" width="34" />
+				{/if}
+			{/each}
+		</div>
+		<span class="font-light"
+			>Enough for <span class="font-semibold">{person}</span>
+			{person === 1 ? 'person!' : 'people!'}</span
+		>
 	</div>
 	<div class="flex flex-col space-y-5 md:space-y-6 w-full md:w-[45%] md:px-4 px-4">
 		<div class="border-b-2 flex flex-col items-center border-orange-500">
@@ -31,6 +53,9 @@
 							placeholder="1000"
 							bind:value={mincedMeat}
 							class="w-24"
+							min="150"
+							max="3000"
+							step="150"
 						/>
 						<span class="text-2xl">g</span>
 					</div>
@@ -38,8 +63,8 @@
 
 				<img src={MincedMeat} alt="Rice" height="64" width="64" />
 			</div>
-			<div class="py-4 md:space-x-2">
-				{#each [250, 500, 750, 1000] as amount}
+			<div class="py-4 md:space-x-2 space-x-1">
+				{#each [300, 450, 700, 1000] as amount}
 					<Button
 						color="alternative"
 						class="focus:ring-2 focus:ring-orange-500"
