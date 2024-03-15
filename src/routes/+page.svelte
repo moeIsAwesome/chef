@@ -282,6 +282,10 @@
 						func={() => {
 							instruction[index].isChecked = !instruction[index].isChecked;
 							instruction[index + 1].isDisabled = !instruction[index].isChecked;
+							// it should disable all the indexes before itself
+							for (let i = 0; i <= index; i++) {
+								instruction[i].isDisabled = instruction[index].isChecked;
+							}
 						}}
 					/>
 				{/each}
