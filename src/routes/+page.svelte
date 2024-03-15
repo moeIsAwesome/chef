@@ -51,77 +51,92 @@
 		{
 			name: 'flourIns',
 			instruction: `Add ${waterForBeerDough.toFixed(0)} mL of lukewarm water.`,
-			isDisabled: false
+			isDisabled: false,
+			isChecked: false
 		},
 		{
 			name: 'yeast',
 			instruction: `Add ${yeast.toFixed(1)} g of yeast.`,
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'honey',
 			instruction: `Add ${honey.toFixed(0)} g of honey.`,
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'rest1',
 			instruction: 'Mix and cover it, and let it rest for 30 minutes at room temperature.',
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'flour1',
 			instruction: `Add ${(flour * 0.7).toFixed(0)} g of flour.`,
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'beer',
 			instruction: `Add ${beer.toFixed(0)} mL of beer.`,
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'rest2',
 			instruction: 'Let it rest for two hours at room temperature.',
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'rest3',
 			instruction: 'Move it to the fridge and let it rest for 24 hours.',
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'flour2',
 			instruction: `Add ${(flour * 0.3).toFixed(0)} g of the remaining flour.`,
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'salt',
 			instruction: `Add ${salt.toFixed(0)} g of salt.`,
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'oliveOil',
 			instruction: `Add ${oliveOil.toFixed(0)} g of olive oil.`,
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'dough',
 			instruction: 'Knead the dough for 25 minutes.',
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'rest4',
 			instruction: 'Let it rest for two hours at room temperature.',
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'rest5',
 			instruction: 'Move it to the fridge and let it rest for 24 hours.',
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		},
 		{
 			name: 'rest6',
 			instruction: 'Take it out four hours before making pizza and shape into 280 g balls.',
-			isDisabled: true
+			isDisabled: true,
+			isChecked: false
 		}
 	];
 </script>
@@ -258,11 +273,15 @@
 				/>
 			</div>
 			<div class="bg-slate-100 rounded p-3 h-fit">
-				{#each instruction as bearDoughCookingCheckbox}
+				{#each instruction as bearDoughCookingCheckbox, index}
 					<CookingCheckbox
-						{...bearDoughCookingCheckbox}
-						removeDisableFromTheOther={() => {
-							console.log('hhh');
+						name={bearDoughCookingCheckbox.name}
+						instruction={bearDoughCookingCheckbox.instruction}
+						isDisabled={bearDoughCookingCheckbox.isDisabled}
+						isChecked={bearDoughCookingCheckbox.isChecked}
+						func={() => {
+							instruction[index].isChecked = !instruction[index].isChecked;
+							instruction[index + 1].isDisabled = !instruction[index].isChecked;
 						}}
 					/>
 				{/each}
