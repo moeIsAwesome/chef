@@ -4,16 +4,16 @@
 	export let instruction: any;
 </script>
 
-<div class="bg-slate-100 rounded p-3 h-fit">
+<div class="bg-white rounded p-3 h-fit">
 	{#each instruction as bearDoughCookingCheckbox, index}
 		{#key bearDoughCookingCheckbox}
 			<div
-				class="flex justify-between border-b-2 py-1"
+				class="flex justify-between border-b-2 border-blue-100 py-2"
 				class:line-through={bearDoughCookingCheckbox.isChecked}
 				class:text-red-600={bearDoughCookingCheckbox.isChecked}
 			>
 				<Label class="px-2" for={bearDoughCookingCheckbox.name}
-					>{bearDoughCookingCheckbox.instruction}</Label
+					>{index + 1}. {bearDoughCookingCheckbox.instruction}</Label
 				>
 				<Checkbox
 					id={bearDoughCookingCheckbox.name}
