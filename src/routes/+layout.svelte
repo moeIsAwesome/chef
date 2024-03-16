@@ -16,8 +16,8 @@
 	$: titleOfDropdown = titleMap[activeUrl] || 'Default Title';
 </script>
 
-<div class="h-screen">
-	<div class="text-center py-5 h-[10%] bg-slate-300">
+<div>
+	<div class="text-center py-5 bg-slate-300">
 		<Button
 			><span class=" mr-2">{titleOfDropdown}</span>
 			<svg
@@ -40,7 +40,7 @@
 			<DropdownItem href="{base}/kebap">Kebap!</DropdownItem>
 		</Dropdown>
 	</div>
-	<div class="h-[90%]">
+	<div>
 		<slot />
 	</div>
 </div>
