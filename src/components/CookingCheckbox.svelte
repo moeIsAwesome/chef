@@ -1,15 +1,48 @@
 <script lang="ts">
 	import { Checkbox, Label } from 'flowbite-svelte';
-	export let instruction: string;
-	export let name: string;
-	export let isDisabled: boolean;
-	export let isChecked: boolean;
-	export let func: any;
+
+	export let instruction: any;
 </script>
 
-{#key isDisabled}
-	<div class="flex justify-between border-b-2 py-1" class:line-through={isChecked}>
-		<Label class="px-2" for={name}>{instruction}</Label>
-		<Checkbox id={name} bind:disabled={isDisabled} on:change={func} bind:checked={isChecked} />
-	</div>
-{/key}
+<div class="bg-slate-100 rounded p-3 h-fit">
+	{#each instruction as bearDoughCookingCheckbox, index}
+		{#key bearDoughCookingCheckbox}
+			<div
+				class="flex justify-between border-b-2 py-1"
+				class:line-through={bearDoughCookingCheckbox.isChecked}
+				class:text-red-600={bearDoughCookingCheckbox.isChecked}
+			>
+				<Label class="px-2" for={bearDoughCookingCheckbox.name}
+					>{bearDoughCookingCheckbox.instruction}</Label
+				>
+				<Checkbox
+					id={bearDoughCookingCheckbox.name}
+					bind:disabled={bearDoughCookingCheckbox.isDisabled}
+					bind:checked={bearDoughCookingCheckbox.isChecked}
+					on:click={() => {
+						if (instruction[index].isChecked === false && index !== instruction.length - 1) {
+							instruction[index].isChecked = !instruction[index].isChecked;
+							instruction[index + 1].isDisabled = !instruction[index + 1].isDisabled;
+							for (let i = 0; i < index; i++) {
+								instruction[i].isDisabled = !instruction[index].isDisabled;
+							}
+						} else if (index !== 0) {
+							instruction[index].isChecked = !instruction[index].isChecked;
+							instruction[index - 1].isDisabled = !instruction[index - 1].isDisabled;
+							for (let i = index + 1; i < instruction.length; i++) {
+								instruction[i].isDisabled = !instruction[index].isDisabled;
+							}
+						} else if (index === 0) {
+							instruction[index].isChecked = !instruction[index].isChecked;
+							for (let i = index + 1; i < instruction.length; i++) {
+								instruction[i].isDisabled = !instruction[index].isDisabled;
+							}
+						} else if (index === instruction.length - 1) {
+							instruction[index].isChecked = !instruction[index].isChecked;
+						}
+					}}
+				/>
+			</div>
+		{/key}
+	{/each}
+</div>

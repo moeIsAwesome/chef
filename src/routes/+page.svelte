@@ -272,24 +272,7 @@
 					value={oliveOil}
 				/>
 			</div>
-			<div class="bg-slate-100 rounded p-3 h-fit">
-				{#each instruction as bearDoughCookingCheckbox, index}
-					<CookingCheckbox
-						name={bearDoughCookingCheckbox.name}
-						instruction={bearDoughCookingCheckbox.instruction}
-						isDisabled={bearDoughCookingCheckbox.isDisabled}
-						isChecked={bearDoughCookingCheckbox.isChecked}
-						func={() => {
-							instruction[index].isChecked = !instruction[index].isChecked;
-							instruction[index + 1].isDisabled = !instruction[index].isChecked;
-							// it should disable all the indexes before itself
-							for (let i = 0; i <= index; i++) {
-								instruction[i].isDisabled = instruction[index].isChecked;
-							}
-						}}
-					/>
-				{/each}
-			</div>
+			<CookingCheckbox bind:instruction />
 		</div>
 	{/if}
 </div>
