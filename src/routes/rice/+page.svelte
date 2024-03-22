@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="h-full bg-slate-300 flex justify-center items-center flex-col overflow-hidden space-y-8 overflow-y-scroll"
+	class="h-screen bg-slate-300 flex justify-center items-center flex-col overflow-hidden space-y-8 overflow-y-scroll"
 >
 	<div class="text-center">
 		<div class="md:text-3xl text-2xl font-bold text-orange-500"><h1>Rice!</h1></div>

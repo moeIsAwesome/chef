@@ -14,12 +14,12 @@
 	let mincedMeat: number = 150;
 	$: onion = mincedMeat * 0.35;
 	$: garlic = mincedMeat / 200;
-	$: salt = mincedMeat / 550;
+	$: salt = mincedMeat / 620;
 	$: person = Math.ceil(mincedMeat / 150);
 </script>
 
 <div
-	class="h-full bg-slate-300 flex justify-center items-center flex-col overflow-hidden space-y-8"
+	class="h-screen bg-slate-300 flex justify-center items-center flex-col overflow-hidden space-y-8"
 >
 	<div class="text-center">
 		<div class="md:text-3xl text-2xl font-bold text-orange-500"><h1>Kebap!</h1></div>
