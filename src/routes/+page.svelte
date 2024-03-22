@@ -30,9 +30,9 @@
 
 		waterForNormalDough = (flour * hydration) / 100;
 
-		waterForBeerDough = ((flour * hydration) / 100) * 0.4;
+		waterForBeerDough = ((flour * hydration) / 100) * 0.55;
 
-		beer = ((flour * hydration) / 100) * 0.6;
+		beer = ((flour * hydration) / 100) * 0.45;
 
 		return {
 			yeast,
