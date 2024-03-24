@@ -24,7 +24,7 @@
 
 	const ingrediaentsCalculator = (flour: number, hydration: number) => {
 		yeast = flour * 0.004;
-		honey = yeast * 1.85;
+		honey = yeast * 2.2;
 		salt = flour * 0.025;
 		oliveOil = flour * 0.0075;
 
@@ -87,7 +87,7 @@
 		},
 		{
 			name: 'rest2',
-			instruction: 'Let it rest for two hours at room temperature.',
+			instruction: 'Let it rest for four hours at room temperature.',
 			isDisabled: true,
 			isChecked: false
 		},
@@ -135,7 +135,7 @@
 		},
 		{
 			name: 'rest6',
-			instruction: 'Take it out four hours before making pizza and shape into 280 g balls.',
+			instruction: 'Take it out two hours before making pizza and shape into 280 g balls.',
 			isDisabled: true,
 			isChecked: false
 		}
